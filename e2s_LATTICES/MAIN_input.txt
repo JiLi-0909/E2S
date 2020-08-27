@@ -1,0 +1,1 @@
+infil = VMX_I06u_input.txt 
