@@ -18,7 +18,7 @@ SRWLIB      = '/dls/physics/xph53246/source_to_beamline/SRWLIB/' # MA 12/03/2018
 sys.path.insert(0, SRWLIB)
 from srwlib import *
 from uti_plot import *
-sys.path.insert(0, '/dls/physics/students/sug89938/E2S/e2s_BLOPTICS')
+sys.path.insert(0, '/dls/physics/students/sug89938/E2S_JL/e2s_BLOPTICS')
 from fct_get_BLoptics  import DefineBLOptics
 import numpy as np
 

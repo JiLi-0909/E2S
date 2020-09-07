@@ -20,7 +20,7 @@ sys.path.insert(0, SRWLIB)
 from srwlib import *
 from uti_plot import *
 
-sys.path.insert(0, '/dls/physics/students/sug89938/E2S/e2s_BLOPTICS')
+sys.path.insert(0, '/dls/physics/students/sug89938/E2S_JL/e2s_BLOPTICS')
 from fct_get_BLoptics  import DefineBLOptics
 
 
@@ -251,14 +251,6 @@ if(srwl_uti_proc_is_master()):
     print('1) Performing Initial Electric Field calculation ... ', end='')
     arPrecPar[6] = sampFactNxNyForProp #sampling factor for adjusting nx, ny (effective if > 0)
     srwl.CalcElecFieldSR(wfr2, 0, magFldCnt, arPrecPar)
-    #print('.\n-----------------JL:saving first wavefront intensity---------------------------------------')
-    	
-    #wfrnew = deepcopy(wfr2)
-    #f = open('/dls/physics/students/sug89938/E2S/e2s_SRW/wfr_DII_I20s_I15wiggler_3000x3000_80pm_bx3m.txt','wb')
-    #pickle.dump(wfrnew,f,True)
-    #f.close
-    #print('done')
-
     print('done')
     print('2) Extracting Intensity from the Calculated Initial Electric Field ... ', end='')
     arI2 = array('f', [0]*wfr2.mesh.nx*wfr2.mesh.ny) #"flat" array to take 2D intensity data

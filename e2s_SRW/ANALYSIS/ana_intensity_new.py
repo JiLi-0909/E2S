@@ -42,9 +42,9 @@ plt.rc('figure', titlesize=BIGGER_SIZE)  # fontsize of the figure title
 # FILIN = 'ex08_res_int3.dat' 
   
 FILIN = sys.argv[1]
-ceil  = sys.argv[2]
+#ceil  = sys.argv[2]
 #ener  = sys.argv[3]
-print('ceil = '+str(ceil))
+#print('ceil = '+str(ceil))
 
 
 f = open(FILIN, 'r')
@@ -151,9 +151,9 @@ print(str(len(y)))
 
 A = []
 for iY in range(0,ypoints):
-    for test in range(iY*xpoints,iY*xpoints+xpoints):
-        if Z[test]>float(ceil):
-            Z[test]=float(ceil)
+    #for test in range(iY*xpoints,iY*xpoints+xpoints):
+        #if Z[test]>float(ceil):
+        #    Z[test]=float(ceil)
 
     A.append(Z[iY*xpoints:iY*xpoints+xpoints])
 
@@ -230,7 +230,7 @@ Yresc = np.multiply(Y,1e6)
 
 #axContour.contourf(Xresc,Yresc,Aresc, 200, cmap=cm.hot)
 #axContour.contourf(Xresc,Yresc,Aresc, 200, cmap=cm.jet)
-axContour.contourf(Xresc,Yresc,Aresc, 200, cmap=cm.hot)
+axContour.contourf(Xresc,Yresc,Aresc, 200, cmap=cm.jet)
 ### axContour.contourf(Xresc,Yresc,Aresc,locator=ticker.LogLocator(numticks=1000), cmap=cm.hot)
 #axContour.contourf(Xresc,Yresc,Aresc, 200, cmap=cm.gray)
 axContour.grid(color='w',linestyle='--')
@@ -253,7 +253,7 @@ axX.plot(xx,a_x)
 #axX.set_title('lattice: DII 6-HMBA / $\epsilon$ = 130pm')
 #axX.set_title('DII-DTBA / I22m / $\epsilon$ = 130pm / Ephot = 10eV')
 #axX.set_title('DII-DTBA K22-0.2T / Ephot = '+str(ener)+'eV')
-axX.set_title('DII MH6BA-9-9-1 K22-3PW / Ephot = '+str(ener)+'eV')
+axX.set_title('Example / Ephot = '+str(ener)+'eV')
 # a_y = Aresc_T[:][2970/2]
 # a_y = Aresc_T[:][len(Y)/2]
 #a_y = Aresc_T[len(x)/2-1][:]

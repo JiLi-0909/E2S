@@ -58,8 +58,8 @@ from fct_get_SR_param                  import DisplayCirc
 
 from fct_get_beam_param_from_twiss     import GetBeamParam
 
-from fct_ana_intensity                 import ana_intensity
-from fct_ana_intensity                 import ana_intensity_penalty
+#from fct_ana_intensity                 import ana_intensity
+#from fct_ana_intensity                 import ana_intensity_penalty
 
 import fct_photonsPhysics_full as pp  #FBT
 

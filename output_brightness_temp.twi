@@ -1,6 +1,6 @@
 SDDS1
 !# little-endian
-&description text="Twiss parameters--input: VMX.ele  lattice: VMX.lte", contents="Twiss parameters", &end
+&description text="Twiss parameters--input: M-H6BA-14-1-1.ele  lattice: M-H6BA-14-1-1.lte", contents="Twiss parameters", &end
 &parameter name=Step, description="Simulation step", type=long, &end
 &parameter name=SVNVersion, description="SVN version number", type=string, &end
 &parameter name=nux, symbol="$gn$r$bx$n", units="1/(2$gp$r)", description="Horizontal tune", type=double, &end
@@ -101,4 +101,8 @@ SDDS1
 &column name=dI4, units=1/m, description="Contribution to radiation integral 4", type=double,  &end
 &column name=dI5, units=1/m, description="Contribution to radiation integral 5", type=double,  &end
 &data mode=binary, &end
-          unknownßŞL,<@Ôyv½Ş @                        ÿÿÿÿÿÿïÿØÚ`Ğ‹*@ƒ²‘‚ò?                        ÿÿÿÿÿÿïÿ        ßŞL,<@ßŞL,<@ØÚ`Ğ‹*@ØÚ`Ğ‹*@   tunes uncorrectedcBy/Úî¶@’õƒ5cÀzĞ&T×d@-,õX50À«) E·EÀ.w„ó:ë?        ˜¤ˆ#@        44GŒ&•‘¿        òP³:˜ğê?        ŒÓ8«GÏ?4u9¸,×!@f|»®?@Ï4=ÕâĞï?£ß€QÍ)@ü)2?¶Ã@@j’ \´Õ?           È                                                                                                                            ğŒãß¹¿        fbUZ=Å\?èOô3„$?¸”óm¶€¶?„ğûò´ë?u–ıQÅ¾?<ËÖ›v[¿¯A|#q'?ÌU,m;'>~ûuC¦ğ>@Qçˆ‡?Î»Ù}8$ğ?DlQfP‡?      ğ?—“Ë/rO?Å¤†íçjw?2D&‚ÇÛÿ?£˜£&í—ï?Ó‹—E¶¤q@*¼5::@”ñƒô­[ñ?Ä@êèÛŞV@å9®ÖÀ!Â?pÃ÷…¿      $@±è*È@¾oV¬¥ùæ?Y[ÿbU!F@                      $@cBy/Úî¶@   DEVICE_J13A      DRIF                                        ïõ©,ß¤q@ŸkJ’©4:@s8ÑHXñ?v ‹&âŞV@`¢<ôÂ?pÃ÷…¿      $@C²İ±îª@pl¬Q×Äæ?‹Ÿ0á!F@                      $@cBy/Úî¶@   DEVICE_J13A      DRIF                                        
+          unknowná(’Ç”L@ÌI&¨ô?                        ÿÿÿÿÿÿïÿS9×ca>4@€¤±°Fó?                        ÿÿÿÿÿÿïÿ        á(’Ç”L@á(’Ç”L@S9×ca>4@S9×ca>4@   tunes uncorrected¤p=
+×î¶@}àeÇa@öueÃùyAÀIş„i#k½ºQ÷ôS½éé¦‹“?        ±¡|%@             ¼         (8È'÷Q?        ’È'ÓÜà?$TÖ&ë
+@Ø>¦­$@v9ŞÕ†ı?¢©OÊ@½¡s4Š•0@ÎñMºLz²?                                                                                                                                      ‡?Ò´¿        Ofwzs&¿›ËË?İqwçµÛ°?sd*ñ$NÔ?	ÅxÀ“¯‘?é!nµ]¾¿	¨³ÓJ Ğ>CZ9Æß=Q<úCoÅ¦>7èõ{}—?mç²‚^ûõ?„f'|ÀŸ?      ğ?#%„¼åÉE?§(™¶ª†“?“M}¡ú?–Ø„(×?r¡z±¤q@ÌK˜¯!@+YyV¾Î¿6º^À zf@#ª\h*+>  €nITº<      $@ğA½ÖİF@³¦Ä/İ¿ÈìFP@                      $@¤p=
+×î¶@   DL_27u	     EDRIFT                                        tåïÙ¤q@ö‚5×²!@«uDÖ*åÎ¿wİï *zf@NÏ0]h*+>  €nITº<      $@Hm0,8P@D1DTİ¿X¼ôÀ»P@                      $@¤p=
+×î¶@   DL_27v	     EDRIFT                                        

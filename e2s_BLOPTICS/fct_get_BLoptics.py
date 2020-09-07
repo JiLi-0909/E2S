@@ -13,14 +13,10 @@ import sys
 import subprocess
 # importing the external functions defining the beamlines 
 import optBL_I13d_test
-import optBL_I04
 import optBL_I13d
-import optBL_I09_b1
-import optBL_I09_2A
 import optBL_I20_scan
-import optBL_I20_scan_new #  JL ceated for RM test
-import optBL_I13d_new #  JL ceated for RM test
-import optBL_I13d_sdivergence #JL created for small divergence test
+import optBL_I20_scan_new 
+import optBL_I13d_new 
 import optBL_crystal_test
 
 
@@ -55,45 +51,17 @@ os.system(' pwd ')
 
 def DefineBLOptics(BLname,slitDX,slitDY):
 
-    if BLname == 'I100':
-        oe_pp = optBL_I100 # returns a container of Optical Elements and Propagation Parameters
-        
-    if BLname == 'I04':
-        Ephot = 8700.000001#13841 # to be changed .... 
-        oe_pp = optBL_I04.optBL(slitDX, slitDY, Ephot)  # define the oe/pp container 
             
     if BLname == 'I13d':            
         Ephot = 11209 # to be changed .... 
         oe_pp = optBL_I13d.optBL(slitDX, slitDY, Ephot)  # define the oe/pp container
 
-    if BLname == 'crystal_test':            
-        Ephot = 8000+1e-9 # to be changed .... 
-        oe_pp = optBL_crystal_test.optBL(slitDX, slitDY, Ephot)  # define the oe/pp container
 
-
-    if BLname == 'I13d_RM':            
-        Ephot = 11209 # to be changed .... 
-        oe_pp = optBL_I13d_new.optBL(slitDX, slitDY, Ephot)  # define the oe/pp container
-
-    if BLname == 'I13d_sd':            
-        Ephot = 11209 # to be changed .... 
-        oe_pp = optBL_I13d_sdivergence.optBL(slitDX, slitDY, Ephot)  # define the oe/pp container   
-    
-    if BLname == 'I09_b1':            
-        Ephot = 10001 # to be changed .... 
-        oe_pp = optBL_I09_b1.optBL(slitDX, slitDY, Ephot)  # define the oe/pp container
-     
-    if BLname == 'I09_2A':            
-        Ephot = 10001 # to be changed .... 
-        oe_pp = optBL_I09_2A.optBL(slitDX, slitDY, Ephot)  # define the oe/pp container
 
     if BLname == 'I20_scan':            
         Ephot = 8700.000000001 # to be changed .... 
         oe_pp = optBL_I20_scan.optBL(slitDX, slitDY, Ephot)  # define the oe/pp container
 
-    if BLname == 'I20_scan_RM':            
-        Ephot = 8700.000000001 # to be changed .... 
-        oe_pp = optBL_I20_scan_new.optBL(slitDX, slitDY, Ephot)  # define the oe/pp container
                               
                               
 

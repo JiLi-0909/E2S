@@ -127,14 +127,7 @@ for iE in range(0,epoints):
 fig, ax = plt.subplots(nrows=1, ncols=1)
 #cpf = ax.plot(E,np.log(F))
 cpf = ax.plot(E,F)
-power=integrate.simps(F, E, axis=-1, even='avg')
-eV2J=1e-19*1.602
-power=power*1000*eV2J
-print('P= '+str(power)+' (W)')
-Dx = 0.3 #xmax-xmin
-Dy = 0.12 # ymax-ymin
-power_dens=power / Dx / Dy
-print('P_dens= '+str(power_dens)+' (W/mm2)')
+
 
 
 plt.show()

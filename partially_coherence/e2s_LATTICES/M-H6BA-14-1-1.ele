@@ -1,0 +1,26 @@
+&divide_elements                                                               
+        name = *,
+        type = "edrift",
+        maximum_length = 0.01,
+&end  
+
+&run_setup
+    lattice	    = "M-H6BA-14-1-1.lte", 
+    magnets         = "%s.mag",
+    use_beamline    = "ringrf",
+    p_central       = 5870.84,
+!6849.3133, 
+    default_order   = 2
+&end
+
+&run_control &end
+
+&twiss_output filename = "%s.twi",
+        statistics=1, radiation_integrals=1,
+&end
+
+&rf_setup
+        filename      = "%s.rf",
+        harmonic      = 936, 
+        total_voltage = 2.5e+6,
+&end
