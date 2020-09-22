@@ -301,9 +301,13 @@ def e2s(dict):
 ###### os.system('./submit_runbatch_Individual.sh')
         
         print("Calc Type is "+calc_type)
-        if calc_type == 'multie_from_individual':
+        if calc_type == 'partially_coherent':
             print("SRW - INTENSITY CALCULATION - front calculation summing up many electrons (partially coherent)")
-            os.system('/dls_sw/apps/python/anaconda/1.7.0/64/bin/python SRW_individualelectrons.py SRW.input')
+            os.system('cp SRW.input /dls/physics/students/sug89938/E2S_JL/partially_coherent/e2s_SRW/SRW.input')
+            partially_coherentdir= 'partially_coherent/e2s_SRW/'
+            cmd  = here+'/'+ partially_coherentdir  # cd to ELEgant directory 
+            os.chdir(cmd)
+            os.system('./qsub_Individual_hamilton.sh')
             
         elif calc_type == 'multie':
             print(os.getcwd())
