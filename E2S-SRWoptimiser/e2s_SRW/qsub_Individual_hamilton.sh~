@@ -1,0 +1,1 @@
+qsub  -q all.q -P ap -V  -pe openmpi 50 runbatch_Individual_hamilton.sh
