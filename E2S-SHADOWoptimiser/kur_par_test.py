@@ -97,19 +97,19 @@ def get_nb_jobs():
 
     return len(output2)
 
-#def execfile(filepath,locals):
-#    with open(filepath, 'rb') as file:
-#        exec(compile(file.read(), filepath, 'exec'),locals)   #JL created to fit python3
-
-def execfile(filepath, globals):
-    if globals is None:
-        globals = {}
-    globals.update({
-        "__file__": filepath,
-        "__name__": "__main__",
-    })
+def execfile(filepath,globals):
     with open(filepath, 'rb') as file:
-       exec(compile(file.read(), filepath, 'exec'), globals)   #JL created to fit python3
+        exec(compile(file.read(), filepath, 'exec'),globals)   #JL created to fit python3
+
+#def execfile(filepath, globals):
+#    if globals is None:
+#        globals = {}
+#    globals.update({
+#        "__file__": filepath,
+#        "__name__": "__main__",
+#    })
+#    with open(filepath, 'rb') as file:
+#       exec(compile(file.read(), filepath, 'exec'), globals)   #JL created to fit python3
 
 ############################################################################################################################################################
 ############################################################################################################################################################
@@ -157,7 +157,8 @@ def evaluate(population):  # original kur evaluate, works#most important
         submit_file=run_name+'-submit.sh'
         f2=open(submit_file,'w')
             #f2.write('/dls_sw/apps/python/anaconda/1.7.0/64/bin/python kur_fct_for_qsub.py'+' '+ run_name +'\n') # here on voit que kur_fct_for_qsub.py is called   MEDIUM QUEUE
-        f2.write('mpiexec /dls_sw/apps/python/anaconda/4.6.14/64/envs/python3.7/bin/python3.7 kur_fct_for_qsub.py'+' '+ INDEX_FORMAT_CODE% task+'\n') # here on voit que kur_fct_for_qsub.py is called HIGH QUEUE#JL: modified to suit python3 name requirement
+       # f2.write('mpiexec /dls_sw/apps/python/anaconda/4.6.14/64/envs/python3.7/bin/python3.7 kur_fct_for_qsub.py'+' '+ INDEX_FORMAT_CODE% task+'\n') # here on voit que kur_fct_for_qsub.py is called HIGH QUEUE#JL: modified to suit python3 name requirement#JL : AP cluster
+        f2.write('mpirun -np 1 /dls_sw/apps/python/anaconda/4.6.14/64/envs/python3.7/bin/python3.7 kur_fct_for_qsub.py'+' '+ INDEX_FORMAT_CODE% task+'\n') # here on voit que kur_fct_for_qsub.py is called HIGH QUEUE#JL: modified to suit python3 name requirement#JL : hamilton cluster
         f2.close()
 
             # FBT: make the *-submit.sh executable 
@@ -173,8 +174,8 @@ def evaluate(population):  # original kur evaluate, works#most important
         
         submit_job_file=run_name+'-submit_job.sh'
         f4=open(submit_job_file,'w')
-            #f4.write('qsub -q ap-medium.q -l redhat_release=rhel6 -V -pe openmpi 1'+' '+ submit_file +'\n') # here on voit que kur_fct_for_qsub.py is called MEDIUM QUEUE
-        f4.write('qsub -q ap-medium.q -l redhat_release=rhel6 -V -pe openmpi 1'+' '+ submit_file +'\n')                                    # HIGH QUEUE
+        #f4.write('qsub -q ap-medium.q -l redhat_release=rhel6 -V -pe openmpi 1'+' '+ submit_file +'\n')   #JL : AP cluster                                  # HIGH QUEUE
+        f4.write('qsub  -q all.q -P ap -V  -pe openmpi 1'+' '+ submit_file +'\n')  #JL: hamilton cluster
         f4.close()
             # FBT: make the *-submit.sh executable
         commande11='chmod +x '+submit_job_file
@@ -185,34 +186,6 @@ def evaluate(population):  # original kur evaluate, works#most important
         commande22='./'+submit_job_file    #----->>>>> C'EST CETTE PARTIE QUI SERA REMPLACEE PAR LE QSUB
         subprocess.call(commande22,shell=True)      
 
-
-
-#    read_files = [this_file for this_file in all_files 
-#                    if (int(re.findall('\d+', this_file)[-1]) > 18000)]
-#
-#    print read_files
-     
-
-
-        #solution_file_1=run_name+'.sol1'
-        #with open(solution_file_1,'w') as f1:
-        #   f1.write('sol='+ str(kur(p))+'\n')
-
-#        if task==17:
-#            filename='submitscript'+ INDEX_FORMAT_CODE % task +'.sh'
-#            with open(filename,'w') as f17:
-#                f17.write
-       
-       
-
-
-
-
-      #  tt.append(kur(p)) -----> don't use
-
-
-
-    #wait that all solutions have been produced: trivial in interactive mode, but in the cluster, the execution times can be different so we must wait.
 
 
     print('waiting for files ...')
@@ -259,6 +232,7 @@ def evaluate(population):  # original kur evaluate, works#most important
     list_var_files=[x[8] for x in output88]
     print('list of variable files at this stage:\n')
     print(list_var_files)
+    print('****************************************************')
     print('\n\n')
 
     #-----------------------------------------------------------------------------------------------------------------------------
@@ -270,6 +244,7 @@ def evaluate(population):  # original kur evaluate, works#most important
     #-----------------------------------------------------------------------------------------------------------------------------
     # 4 - we create the list of associated solutions (just the filenames)
     list_sol2_files=[dd+'.sol2' for dd in list_last_generation_rootnames]
+    print(list_sol2_files)
     #----------------------------------------------------------------------------------------------------------------------------- 
     # 5 - now the tricky part: for each member of the population, we must retrieve the associated solution computed in the cluster
     #     To do that, is member of population is identified within the list of variables, and we then retrieve the *.sol2 file in the list
@@ -310,7 +285,7 @@ def evaluate(population):  # original kur evaluate, works#most important
 
             #f333.close()
 
-    with open('/dls/physics/students/sug89938/Shadow_Optimiser/shadow_srw_I13d/log_machine.txt','a') as f92:
+    with open('/dls/physics/students/sug89938/E2S_JL/E2S-SHADOWoptimiser/log_machine.txt','a') as f92:
        f92.write('\n\npopulation:')
        f92.write(str(population))
        f92.write('\n\n the generation output is:\n\n')
@@ -382,11 +357,11 @@ individules = [
 
 # this is the population size
 # larger population, better diversity of solutions
-population_size = 2
+population_size = 30
 
 # this is the number of generations (iterations)
 # more generations, better convergence
-generations = 2
+generations = 30
 
 # the seed used for the random number generator
 # ensures repeatable results with the same

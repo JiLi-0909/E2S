@@ -21,7 +21,7 @@ def kur(x,rootnumber):
     print('====================================================================================================')
     
     #Imax,sigx,sigy=func_optBL(k13,k15)
-    print('---------------JL: now we are in 3PW  optimisation------------------------') 
+    print('---------------JL: now we are in SHADOW optimisation------------------------') 
     print("x vaut :",x)
     print("-------------------------------------BEAMLINE HARDWARE--------------------------------------------")
     print("x[0] vaut:")
