@@ -32,10 +32,12 @@ e2s_SHADOW   = CWD+'/e2s_SHADOW/'
 
 
 ### SRWLIB      = '/dls/physics/xph53246/source_to_beamline/SRW_Dev/env/work/SRW_PROJECT/MyBeamline/'
-SRWLIB      = '/dls/physics/xph53246/source_to_beamline/SRWLIB/' # MA 12/03/2018 - repository created for pure SRWlib files 
+#SRWLIB      = '/dls/physics/xph53246/source_to_beamline/SRWLIB/' # MA 12/03/2018 - repository created for pure SRWlib files 
 #SRWLIB      = '/dls/physics/students/sug89938/SRW_PROJECT_FB/'
 #SRWLIB      ='/dls/physics/students/sug89938/E2S/SRWLIB/'
 #SRWLIB = '/dls/physics/mfc33124/SRW_DLS_06/E2S/SRWLIB' #FBT
+
+SRWLIB      = CWD+'/SRWLIB/' # MA 08/11/2020 - no hardcoded reference (Trump defeated)
 
 
 sys.path.insert(0, SRWLIB)
