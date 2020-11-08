@@ -8,9 +8,15 @@ import sys
 import subprocess
 import interpol
 
- # MA 12/03/2018 - repository created for pure SRWlib files 
+from os.path import dirname # MA 08/11/2020 - used to reference SRWLIB
 
-SRWLIB      = '/dls/physics/xph53246/source_to_beamline/SRWLIB/'
+# MA 12/03/2018 - repository created for pure SRWlib files 
+# SRWLIB      = '/dls/physics/xph53246/source_to_beamline/SRWLIB/' [original hardcoded]
+
+CWD = os.getcwd()                    # MA 08/11/2020 (one dir up then add SRWLIB)
+SRWLIB = dirname(CWD)+'/SRWLIB/'     # this way ref to SRWLIB is not hardcoded 
+
+
 sys.path.insert(0, SRWLIB)
 from srwlib import *
 from uti_plot import *
