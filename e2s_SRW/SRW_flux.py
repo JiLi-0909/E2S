@@ -10,15 +10,22 @@ import os
 import sys
 import datetime
 
+from os.path import dirname # MA 08/11/2020 - used to reference SRWLIB
 
 ###SRWLIB      = '/dls/physics/xph53246/source_to_beamline/SRW_Dev/env/work/SRW_PROJECT/MyBeamline/'
-SRWLIB      = '/dls/physics/xph53246/source_to_beamline/SRWLIB/' # MA 12/03/2018 - repository created for pure SRWlib files 
+# SRWLIB      = '/dls/physics/xph53246/source_to_beamline/SRWLIB/' # MA 12/03/2018 - repository created for pure SRWlib files  [original hardcoded]
+
+CWD = os.getcwd()                    # MA 08/11/2020 (one dir up then add SRWLIB)
+SRWLIB = dirname(CWD)+'/SRWLIB/'     # this way ref to SRWLIB is not hardcoded 
 
 
 sys.path.insert(0, SRWLIB)
 from srwlib import *
 from uti_plot import *
-sys.path.insert(0, '/dls/physics/students/sug89938/E2S_JL/e2s_BLOPTICS')
+OPTICS =  dirname(CWD)+'/e2s_BLOPTICS' # MA 08/11/2020 (one dir up then add e2s_BLOPTICS)
+sys.path.insert(0, OPTICS)
+# sys.path.insert(0, '/dls/physics/students/sug89938/E2S_JL/e2s_BLOPTICS') [original hardcoded]
+
 from fct_get_BLoptics  import DefineBLOptics
 import numpy as np
 
