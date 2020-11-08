@@ -3,7 +3,7 @@
 """
 Created on Sun 18 Mar 2018
 
-@author: MA
+@author: MA - Diamond Light Source
 
 description: returns a BLopt container to be used in a SRW_*.py file    
 """
@@ -19,9 +19,12 @@ import optBL_I20_scan_new
 import optBL_I13d_new 
 import optBL_crystal_test
 
+from os.path import dirname # MA 08/11/2020 - used to reference SRWLIB
 
-SRWLIB      = '/dls/physics/xph53246/source_to_beamline/SRWLIB/' # MA 12/03/2018 - repository created for pure SRWlib files 
+# SRWLIB      = '/dls/physics/xph53246/source_to_beamline/SRWLIB/' # MA 12/03/2018 - repository created for pure SRWlib files [original hardcoded]
 
+CWD = os.getcwd()                    # MA 08/11/2020 (one dir up then add SRWLIB)
+SRWLIB = dirname(CWD)+'/SRWLIB/'     # this way ref to SRWLIB is not hardcoded 
 
 
 sys.path.insert(0, SRWLIB)
