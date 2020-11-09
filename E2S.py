@@ -41,6 +41,7 @@ SRWLIB      = CWD+'/SRWLIB/' # MA 08/11/2020 - no hardcoded reference (Trump def
 
 
 sys.path.insert(0, SRWLIB)
+sys.path.insert(0, CWD)    # can be useful later in e2s (MA 09112020 to be tested)
 from srwlib import *
 from uti_plot import *
 
@@ -50,6 +51,7 @@ sys.path.insert(0, e2s_SRW)
 sys.path.insert(0, e2s_ELEGANT)
 sys.path.insert(0, e2s_BLOPTICS)
 sys.path.insert(0, e2s_SHADOW+'/ANALYSIS/')
+
 
  
 # now we can import the functions 
@@ -305,7 +307,9 @@ def e2s(dict):
         print("Calc Type is "+calc_type)
         if calc_type == 'partially_coherent':
             print("SRW - INTENSITY CALCULATION - front calculation summing up many electrons (partially coherent)")
-            os.system('cp SRW.input /dls/physics/students/sug89938/E2S_JL/partially_coherent/e2s_SRW/SRW.input')
+            #### os.system('cp SRW.input /dls/physics/students/sug89938/E2S_JL/partially_coherent/e2s_SRW/SRW.input')
+            os.system('cp SRW.input '+CWD+'/partially_coherent/e2s_SRW/SRW.input') # remove dependency from sug89938 directory ... 
+            
             partially_coherentdir= 'partially_coherent/e2s_SRW/'
             cmd  = here+'/'+ partially_coherentdir  # cd to ELEgant directory 
             os.chdir(cmd)
