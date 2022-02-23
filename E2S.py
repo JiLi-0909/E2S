@@ -9,9 +9,6 @@
 # - call elegant
 # - extract Twiss parameters at ID
 # - run SRW/SHADOW with these parameters as input
-# - plot the results
-#   1) Flux at Entry Slit
-#   2) intensity image (somewhere down the optical beamline)
 #
 #############################################################################
 
